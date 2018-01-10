@@ -35,6 +35,8 @@ namespace Questions
             {
                 char[] x = input.ToCharArray();
 
+                     
+
                 if (!repated[x[i]])
                 {
                     if (!output.Contains(x[i]))
