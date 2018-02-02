@@ -11,19 +11,27 @@ namespace Questions
         public static void Main(string[] args)
         {
 
-            Prime_numbers(new int[] { 1,214,215});
+             //(new int[] { 1, 214, 215 });
             //Count_Non_Repetitive_Characters("geeksforgeeks");
             //Count_Repetitive_Characters("geeksforgeeks");
             //Sum_even_numbers_in_Fabonacci(400);
             //int[] input = new int[] { 20, 30, 25, 59, 60, 32 };
             // Large_small_number_in_Array(input);
-           // Missing_number_in_array(new int[] { 1, 2, 3, 5, 6 }, 6);
-            binary_search();
+            // Missing_number_in_array(new int[] { 1, 2, 3, 5, 6 }, 6);
+            //binary_search();
+            //String_To_Int();
+           // Decimal_To_Binary(23);
+
+            //Fizz_Buzz obj = new Fizz_Buzz();
+            //obj.Print_Fizz_Buzz();
+
+           // Turvo.test();
+            Turvo.NumberOfIterations();
         }
         public static HashSet<object> set = new HashSet<object>();
         public static int max_count = 256;
-        public static  List<object> output = new List<object>();
-     
+        public static List<object> output = new List<object>();
+
 
         static bool[] repated = new bool[max_count];
 
@@ -35,7 +43,7 @@ namespace Questions
             {
                 char[] x = input.ToCharArray();
 
-                     
+
 
                 if (!repated[x[i]])
                 {
@@ -66,7 +74,7 @@ namespace Questions
             int count = 0;
             char[] y = input.ToCharArray();
 
-            foreach( var v in y )
+            foreach (var v in y)
             {
                 if (output.Contains(v))
                     count++;
@@ -76,24 +84,24 @@ namespace Questions
                 }
             }
             object[] final = output.ToArray();
-            foreach( var v in final)
+            foreach (var v in final)
             {
                 Console.WriteLine(v);
             }
             Console.WriteLine(final.Length);
 
-            
 
-           // Console.WriteLine(count);
+
+            // Console.WriteLine(count);
             Console.Read();
-              
+
 
         }
-     public static void Sum_even_numbers_in_Fabonacci( int limit)
+        public static void Sum_even_numbers_in_Fabonacci(int limit)
         {
             int a = 0; int b = 1; int c = 0; int EvenSum = 0;
             List<int> count = new List<int>();
-            for( int i = 0; i < limit; i++)
+            for (int i = 0; i < limit; i++)
             {
                 c = a + b;
                 //Console.WriteLine("Fabonacci starting"+"\n"+c);
@@ -107,21 +115,21 @@ namespace Questions
                 }
                 a = b;
                 b = c;
-                
+
             }
-            foreach( var v in count)
+            foreach (var v in count)
                 Console.WriteLine(v);
 
-            Console.WriteLine("test"+count[5]);
+            Console.WriteLine("test" + count[5]);
             //Console.WriteLine($"sum of even number in fabonacci series is {EvenSum}");
             Console.Read();
-        }   
-        
+        }
+
         public static void Large_small_number_in_Array(int[] input)
         {
             int large = input[0], small = input[0];
 
-            for ( int i=1; i<input.Length;i++)
+            for (int i = 1; i < input.Length; i++)
             {
 
                 output.Add(input[i]);
@@ -131,41 +139,41 @@ namespace Questions
                 //    large = input[i];
                 //    output.Add(large);
                 //}
-               // if (input[i] < small)
-                    //small = input[i];
+                // if (input[i] < small)
+                //small = input[i];
             }
 
             output.Sort();// we will use sort function of list class.
             output.Reverse();
-            for( int j=0; j<=2;j++)
+            for (int j = 0; j <= 2; j++)
             {
-                Console.Write( $"{output[j]},");
+                Console.Write($"{output[j]},");
             }
-           // Console.WriteLine($"largest number {large} and smallest number {small}");
+            // Console.WriteLine($"largest number {large} and smallest number {small}");
             Console.Read();
-            
+
         }
         public static void Missing_number_in_array(int[] input, int n)// array = 51,52,53,54,55,57 - one missing number 
         {
             int Sum_actual_array = 0;
             int Sum_expected_array = 0;
 
-            for(int i=0;i<input.Length; i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 Sum_actual_array += input[i];
             }
 
-            Sum_expected_array= n*(n+1)/2;
+            Sum_expected_array = n * (n + 1) / 2;
             int missing_array = Sum_expected_array - Sum_actual_array;
             Console.WriteLine($"missing array is {missing_array}");
             Console.Read();
 
-                }
+        }
 
 
-        public static void binary_search () // binary search works on sorted array only , we need to find index of any number in soreted array
-        {  
-            
+        public static void binary_search() // binary search works on sorted array only , we need to find index of any number in soreted array
+        {
+
             //Array.Sort(input);
             //int key=0 ;
             //int min = 0;
@@ -179,7 +187,7 @@ namespace Questions
             //    return mid;
             //    if (key < input[mid])
             //         min = mid - 1;
-               
+
             //    if (key > input[mid])
             //        return max = mid + 1;
 
@@ -187,45 +195,98 @@ namespace Questions
             //}
             //return 1;
 
-              int opt = Array.BinarySearch(new int[] { 56, 67, 87, 90 }, 87);
+            int opt = Array.BinarySearch(new int[] { 56, 67, 87, 90 }, 87);
             Console.WriteLine($"Index of is {opt}");
             Console.Read();
 
         }
 
         public static void Prime_numbers(int[] Numbers)
-        {   
-            for (int i=0; i<Numbers.Length;i++)
+        {
+            for (int i = 0; i < Numbers.Length; i++)
             {
-                for (int j = 2; j < Numbers[i]/2; j++)
+                for (int j = 2; j < Numbers[i] / 2; j++)
                 {
                     if (Numbers[i] % j == 0 && Numbers[i] != j)
-                    { 
+                    {
                         break;
-                     }
-                    else if(Numbers[i]==2)
+                    }
+                    else if (Numbers[i] == 2)
                         set.Add(Numbers[i]);
                     else
                         set.Add(Numbers[i]);
                 }
-                        
+
             }
-  
-            
+
+
             foreach (var item in set)
             {
                 Console.Write($"{item}, ");
             }
 
             Console.Read();
-            
+
 
         }
-        
+
+        public static void String_To_Int()
+        {
+            string input = Console.ReadLine();
+            try
+            {
+                int number = Convert.ToInt32(input);
+                Console.WriteLine(number);
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Bad String");
+                
+               
+            }
+            Console.Read();
         }
-      
+
+
+        public static void Decimal_To_Binary( int input)
+        {
+            int max = 0, count = 0, rem = 0;
+             
+               
+            while(input >0)
+            {
+                rem = input % 2;
+                
+                output.Add(rem);
+                input = input / 2;
+                
+               
+
+            }
+            for(int i=0;i<output.Count;i++)
+            {
+                if(output[i].Equals(1))
+                {
+                    count++;
+                    
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            
+                Console.WriteLine(count);
+            
+
+            Console.Read();
+        }
+
 
 
     }
 
 
+}
